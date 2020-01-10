@@ -1,3 +1,9 @@
+### uses the cat API here
+
+https://docs.thecatapi.com/
+
+**Boiler plate**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
