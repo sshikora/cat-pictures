@@ -1,6 +1,5 @@
 
 async function getRandomImage() {
-  let url = ''
   const response = await fetch('https://api.thecatapi.com/v1/images/search', {
     method:'GET'
   })
