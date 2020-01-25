@@ -5,7 +5,17 @@ async function getRandomImage() {
   })
   await checkStatus(response)
   const catImageArray = await parseJSON(response)
-  return catImageArray[0]
+  const catImage = {'url':'', 'breed':{'name':'', 'life_span':''}}
+  if (catImageArray[0] && catImageArray[0].url){
+    catImage.url = catImageArray[0].url
+  }
+  if (catImageArray[0] && catImageArray[0].breed && catImageArray[0].breed['name']){
+    catImage.breed['name'] = catImageArray[0].breed['name']
+  }
+  if (catImageArray[0] && catImageArray[0].breed && catImageArray[0].breed['life_span']){
+    catImage.breed['life_span'] = catImageArray[0].breed['life_span']
+  }
+  return catImage
 }
 
 function checkStatus(response) {

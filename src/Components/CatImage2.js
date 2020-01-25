@@ -16,8 +16,8 @@ class CatImage extends React.Component {
     const catImage = await client.getRandomImage()
     let catImageObjsArray = this.state.catImageObjs
     catImageObjsArray.push(catImage)
+    this.setState({catImageIndex:this.state.catImageIndex + 1})
     this.setState({catImageObjs:catImageObjsArray})
-    this.setState({catImageIndex:this.state.catImageIndex++})
   }
 
   async handleRandomButton() {
@@ -25,20 +25,28 @@ class CatImage extends React.Component {
     let catImageObjsArray = this.state.catImageObjs
     catImageObjsArray.push(catImage)
     this.setState({catImageUrls:catImageObjsArray})
-    this.setState({catImageIndex:this.state.catImageIndex++})
+    this.setState({catImageIndex:catImageObjsArray.length - 1})
   }
 
   handleNextButton() {
-
+    if (this.state.catImageIndex < this.state.catImageObjs.length-1){
+      this.setState({catImageIndex:this.state.catImageIndex + 1})
+    }
   }
 
   handlePreviousButton() {
-
+    if (this.state.catImageIndex > 0){
+      this.setState({catImageIndex:this.state.catImageIndex - 1})
+    }
   }
 
   render() {
 
-    const catObj = this.state.catImageObjs[this.state.catImageIndex]
+    let catObj = {"url":"", "breed":{'name':'', 'life_span':''}}
+    if (this.state.catImageObjs.length) {
+      catObj = this.state.catImageObjs[this.state.catImageIndex]
+    }
+    const breedName = catObj.breed['name']
     return(
         <div>
           <CatImageShow url={catObj.url}/>

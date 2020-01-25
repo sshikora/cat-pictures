@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import client from './Client/client'
-import CatImage from './Components/CatImage'
+import CatImage from './Components/CatImage2'
 import './App.css';
 
 
