@@ -2,6 +2,7 @@ import React from 'react'
 import CatImageShow from './CatImageShow'
 import client from '../Client/client'
 
+
 class CatImage extends React.Component {
 
   constructor(props) {
