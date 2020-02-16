@@ -1,6 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import CatImageShow from './CatImageShow'
 import client from '../Client/client'
+
+const ButtonContainer = styled.div`
+  margin: auto;
+  width: 400px;
+  text-align: center;
+`
+
 
 class CatImage extends React.Component {
 
@@ -48,20 +56,32 @@ class CatImage extends React.Component {
     }
     const breedName = catObj.breed['name']
     return(
-        <div>
-          <CatImageShow url={catObj.url}/>
-          <div className='breed_name'>
-            BreedName: {catObj.breed['name']}
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <CatImageShow url={catObj.url}/>
+            </div>
           </div>
-          <div className='life_span'>
-            Life Span: {catObj.breed['life_span']}
+          <div className='row'>
+            <div className='col'>
+              <div className='breed_name'>
+                BreedName: {catObj.breed['name']}
+              </div>
+              <div className='life_span'>
+                Life Span: {catObj.breed['life_span']}
+              </div>
+              <div className='image_url'>
+                Image Url: {catObj.url}
+              </div>
+              <ButtonContainer className='row'>
+                <button type="button" className="col btn btn-secondary" onClick={() => this.handlePreviousButton()}>Previous</button>
+                <div className='col-2'/>
+                <button type="button" className="col btn btn-primary" onClick={() => this.handleRandomButton()}>Random</button>
+                <div className='col-2'/>
+                <button type="button" className="col btn btn-secondary" onClick={() => this.handleNextButton()}>Next</button>
+              </ButtonContainer>
+            </div>
           </div>
-          <div className='image_url'>
-            Image Url: {catObj.url}
-          </div>
-          <button onClick={() => this.handlePreviousButton()}>Previous</button>
-          <button onClick={() => this.handleRandomButton()}>Random</button>
-          <button onClick={() => this.handleNextButton()}>Next</button>
         </div>
 
     )
