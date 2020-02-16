@@ -65,7 +65,7 @@ class CatImage extends React.Component {
           <div className='row'>
             <div className='col'>
               <div className='breed_name'>
-                BreedName: {catObj.breed['name']}
+                Breed Name: {catObj.breed['name']}
               </div>
               <div className='life_span'>
                 Life Span: {catObj.breed['life_span']}
